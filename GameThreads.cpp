@@ -89,6 +89,7 @@ void Render(void)
 	clear();
 	// Desenha
 	printw("Olá, Mundo!\n");
+	printw("Aperte R para rolar um d20\n");
 	if(isRolling)
 	{
 		printw("Você tirou %d\n", rolledDie);
