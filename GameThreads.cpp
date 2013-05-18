@@ -20,10 +20,17 @@ using namespace std::this_thread;
 xorshift randomEngine;
 bool isRunning = true;
 int key;
-// funções prototípicas
-int Random(int min, int max);
 int rolledDie;
 bool isRolling = false;
+
+// funções prototípicas
+void Setup(void);
+void Input(void);
+void Render(void);
+void Close(void);
+int Random(int min, int max);
+
+
 int main(int argc, char* argv[])
 {
 	// Configuração
@@ -51,7 +58,9 @@ void Setup(void)
 	// motor aleatório
 	randomEngine.seed(time(nullptr));
 	// Inicializar console
+	
 	initscr();								// cria objeto stdscr (tela principal)
+	setscrreg(1080, 600);
 	start_color();							
 	init_pair(1, COLOR_BLACK, COLOR_WHITE);
 	bkgd(COLOR_PAIR(1));
@@ -116,3 +125,4 @@ int Random(int min, int max)
 	int i = dist(randomEngine);
 	return i;
 }
+
